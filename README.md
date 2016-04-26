@@ -177,7 +177,7 @@ Git会自动把所有已经跟踪过的文件暂存起来一并提交。
 
 #### 添加远程仓库
 
-> 运行 git remote add <shortname> <url> 添加一个新的远程 Git 仓库，同时指定一个你可以轻松引用的简写。
+> 运行 git remote add [shortname] [url] 添加一个新的远程 Git 仓库，同时指定一个你可以轻松引用的简写。
 
 #### 从远程仓库中抓取与拉取
 
@@ -201,7 +201,9 @@ Git会自动把所有已经跟踪过的文件暂存起来一并提交。
 
 		$ git remote rename <old name> <new name>
 
-> 移除一个远程仓库： git remote rm <remote url or name>
+> 移除一个远程仓库： 
+
+		$ git remote rm <remote url or name>
 
 ---
 
@@ -262,3 +264,27 @@ Git会自动把所有已经跟踪过的文件暂存起来一并提交。
 对Git外部命令，在命令前加`!`调用外部命名:
 
 		$ git config --global alias.visual '!gitk'
+
+---
+
+### 分支
+
+> Git 的分支，其实本质上仅仅是指向提交对象的可变指针。 Git 的默认分支名字是 master。 在多次提交操作之后，你其实已经有一个指向最后那个提交对象的 master 分支。 它会在每次的提交操作中自动向前移动。
+
+> Git 的 “master” 分支并不是一个特殊分支。 它就跟其它分支完全没有区别。 之所以几乎每一个仓库都有 master 分支，是因为 git init 命令默认创建它，并且大多数人都懒得去改动它。
+
+#### 分支创建
+
+		$ git branch myBranch
+
+但是注意:
+
+	> 因为 git branch 命令仅仅 创建 一个新分支，并不会自动切换到新分支中去。
+
+	> Git 又是怎么知道当前在哪一个分支上呢？ 也很简单，它有一个名为 HEAD 的特殊指针。
+
+#### 分支切换
+
+		$ git checkout myBranch
+
+
