@@ -287,4 +287,10 @@ Git会自动把所有已经跟踪过的文件暂存起来一并提交。
 
 		$ git checkout myBranch
 
+当前工作目录切换myBranch，还有一个命令可以同时创建和切换到新的分支：
+
+		$ git checkout -b newestBranch
+
+
+
 
