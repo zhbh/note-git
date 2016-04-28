@@ -321,6 +321,10 @@ Git会自动把所有已经跟踪过的文件暂存起来一并提交。
 
 		$ git branch
 
+		//or 
+
+		$ git branch --all //同时列出远程分支
+
 	执行上面命令，则列出所有分支，并前面带有星号，表示当前目录。
 
 2. 查看已合并和未合并分支
@@ -330,5 +334,49 @@ Git会自动把所有已经跟踪过的文件暂存起来一并提交。
 	已合并的分支可以删除，未合并的分支不可以进行删除，但是可以强制删除，大写参数D，如下命令：
 
 		$ git branch -D [分支]
+
+#### 远程分支
+
+如下命令，来显式地获得远程引用（对远程仓库的引用（指针），包括分支、标签等等）的完整列表：
+
+		$ git ls-remote (remote)
+
+远程分支以(remote)/(branch) 形式命名。
+
+		$ git fetch (remote)
+
+		//or
+
+		$ git fetch --all //抓取所有远程分支
+
+以上命令，是从远程分支抓取到本地没有的数据，远程分支在本地属于一个分支，并不会自动合并当期工作目录分支；如果使用
+
+		$ git pull (remote)
+
+不仅抓取远程分支，且合并本地分支。
+
+在推送之前，必要检查是否远程分支数据是否有更新，就是执行抓取和合并操作之后，才能进行推送：
+
+		$ git push (remote) (branch)
+
+#### 如何避免每次输入密码
+
+>  最简单的方式就是将其保存在内存中几分钟，可以简单地运行`git config --global credential.helper cache`来设置它。
+
+#### 跟踪分支
+
+> 如果不想跟踪默认的分支，运行`git checkout -b [branch] [remotename]/[branch]`。 这是一个十分常用的操作所以 Git 提供了 --track 快捷方式：
+
+		$ git checkout --track origin/serverfix
+
+如果想要查看设置的所有跟踪分支:
+
+		$ git branch -vv
+
+#### 删除远程分支
+
+从服务器上删除 serverfix 分支，基本上这个命令做的只是从服务器上移除这个指针：
+
+		$ git push origin --delete serverfix
 
 ### 变基
