@@ -55,7 +55,6 @@
 	
 		$ git init
 
-
 2. 一个服务器克隆一个现有的Git仓库。
 
 		$ git clone https://github.com/example
@@ -96,7 +95,7 @@
 
 > 实际上 Git 只不过暂存了你运行 git add 命令时的版本， 如果你现在提交，CONTRIBUTING.md 的版本是你最后一次运行 git add 命令时的那个版本，而不是你运行 git commit 时，在工作目录中的当前版本。 所以，运行了 git add 之后又作了修订的文件，需要重新运行 git add 把最新版本重新暂存起来。
 
-#### 忽略文件
+#### 2.2忽略文件
 
 需要创建`.gitignore`文件，文件里每一行使用正则表达式来忽略上传的文件。
 
